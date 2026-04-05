@@ -1,11 +1,11 @@
 # New Component Research and Planning
 
-## Selected Componenet: Express-rate-limit for Basic Rate Limiting - Adds rate limiting to endpoints to control API usage.
+## Selected Component: Express-rate-limit for Basic Rate Limiting - Adds rate limiting to endpoints to control API usage.
 
 ---
 
 ## Overview
-The selected new component for this project is rate limiting using the express-rate-limit middleware. This component helps control.
+The selected new component for this project is rate limiting using the express-rate-limit middleware. This component helps control
 the number of requests a client/user can make to the API within a specified time window.
 
 ---
