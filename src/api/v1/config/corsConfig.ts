@@ -18,4 +18,3 @@ const getCorsOptions = () => {
     };
 };
 
-app.use(cors(getCorsOptions()));
