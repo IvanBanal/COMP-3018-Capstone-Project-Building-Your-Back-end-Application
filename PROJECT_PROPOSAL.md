@@ -28,7 +28,7 @@ The API will support managing **books and members**.
 
 ### Data
 - **Books:** id, title, author, genre, availability  
-- **Members:** id, name, email  
+- **Members:** id, name, email, books borrowed
 
 The API will include validation, proper error handling, and structured routes.
 
