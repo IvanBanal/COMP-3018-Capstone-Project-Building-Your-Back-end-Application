@@ -23,4 +23,14 @@ export const getAllMembersRepo = async (): Promise<Member[]> => {
     return snapshot.docs.map(doc => doc.data() as Member); 
 };
 
+/**
+ * This will retrieve member by ID.
+ * @params id - Member ID
+ * @returns Member or null
+ */
+export const getMemberByIdRepo = async (id: string): Prommise<Member | null> => {
+    const doc = await db.collection(COLLECTION).doc(id).get();
+    if (!doc.exists) return null;
+    return doc.data() as Member;
+};
 
