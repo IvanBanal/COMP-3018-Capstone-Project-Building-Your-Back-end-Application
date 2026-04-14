@@ -8,6 +8,8 @@ export const createMemberSchema = Joi.object({
 
     email: Joi.string().email().required(),
 
+    membershipDate: Joi.date().iso().required(), 
+
     status: Joi.string()
         .valid("active", "inactive", "suspended")
         .default("active"),

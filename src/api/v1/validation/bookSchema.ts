@@ -12,6 +12,11 @@ export const createBookSchema = Joi.object({
 
     isbn: Joi.string().min(10).max(20).required(),
 
+    totalCopies: Joi.number() 
+        .integer()
+        .min(0)
+        .required(),
+
     availableCopies: Joi.number()
         .integer()
         .min(0)
