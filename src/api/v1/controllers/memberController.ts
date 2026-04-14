@@ -27,3 +27,21 @@ export const getAllMembers = async (req: Request, res: Response) => {
     });
 };
 
+/**
+ * This is a controller to retrieve a member by ID.
+ */
+export const getMemberById = async (req: Request, res: Response) => {
+    const member = await service.getMemberByIdService(req.params.id);
+
+    if (!member) {
+        res.status(HTTP_STATUS.NOT_FOUND).json({
+            message: "Member not found"
+        });
+        return;
+    }
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Member retrieved",
+        data: member
+    });
+};
