@@ -27,8 +27,10 @@ The API will support managing **books and members**.
 - `DELETE /api/v1/members/:id` - Delete a member  
 
 ### Data
-- **Books:** id, title, author, genre, availability  
-- **Members:** id, name, email, books borrowed
+- **Books:** id, title, author, genre, isbn, totalCopies, availableCopies, publishedYear, description, availability, 
+createdAt, updatedAt
+
+- **Members:** id, name, email, membershipDate, status, borrowLimit, phoneNumber, address, booksBorrowed, createdAt, updatedAt
 
 The API will include validation, proper error handling, and structured routes.
 
