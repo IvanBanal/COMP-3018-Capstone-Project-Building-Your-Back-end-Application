@@ -4,7 +4,6 @@ import { validateRequest } from "../middleware/validate";
 import { createBookSchema } from "../validation/bookSchema";
 import authenticate from "../middleware/authenticate";
 import isAuthorized from "../middleware/authorize";
-import { auth } from "firebase-admin";
 
 const router = Router();
 
