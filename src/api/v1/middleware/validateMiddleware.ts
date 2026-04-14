@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import { ObjectSchema } from "joi";
-import { HTTP_STATUS } from "../../../constants/httpConstants"
+import { HTTP_STATUS } from "../constants/httpConstants"
 
 /**
  * Validation for middleware.
