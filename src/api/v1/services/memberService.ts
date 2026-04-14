@@ -17,3 +17,28 @@ const generateId = () => {
     return `member_${String(counter++).padStart(6, "0")}`;
 };
 
+/**
+ * This will create a new member and saves it to Firestore.
+ * @param data - Member input data.
+ * @returns Created Member with generated fields.
+ */
+export const createMemberService = async (data: Partial<Member>): Promise<Member> => {
+    const now = new Date().toDateString();
+
+    const member: Member = {
+        id: generateId(),
+        name: data.name!,
+        email: data.email!,
+        membershipDate: data.membershipDate!,
+        status: data.status ?? "active",
+        borrowLimit: data.borrowLimit!,
+        phoneNumber: data.phoneNumber!,
+        address: data.address!,
+        booksBorrowed: data.booksBorrowed ?? [],
+        createdAt: now,
+        updatedAt: now
+    };
+
+    return await repo.createMemberRepo(member);
+};
+
