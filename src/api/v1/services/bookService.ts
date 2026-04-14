@@ -42,3 +42,12 @@ export const createBookService = async (data: Partial<Book>): Promise<Book> => {
     
     return await repo.createBookRepo(book);
 };
+
+/**
+ * This will retrieve all books.
+ * @returns Array of books.
+ */
+export const getAllBooksService = async () => {
+    return await repo.getAllBooksRepo();
+};
+
