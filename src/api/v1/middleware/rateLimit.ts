@@ -14,3 +14,18 @@ export const globalLimiter = rateLimit({ // Calls the express-rate-limit package
     standardHeaders: true, // Adds modern HTTP headers to response.
     legacyHeaders: false // Disables old/depracated headers. 
 });
+
+/**
+ * Strict limiter for sensitive/admin routes.
+ * Limits each IP to 3 requests every 10 seconds (This is used for now due to testing purposes).
+ */
+export const strictLimiter = rateLimit({
+    windowMs: 10 * 1000, // 10 seconds.
+    max: 3,
+    message: {
+        message: "Too many sensitive requests, please slow down."
+    },
+    standardHeaders: true,
+    legacyHeaders: false
+
+});
