@@ -23,4 +23,14 @@ export const getAllBooksRepo = async (): Promise<Book[]> => {
     return snapshot.docs.map(doc => doc.data() as Book);
 };
 
-
+/**
+ * This will retrieve a single book by ID.
+ * @params id - book ID.
+ * @returns Book or null if not found.
+ */
+export const getBookByIdRepo = async (id: string): Promise<Book | null> => {
+    const doc = await db.collection(COLLECTION).doc(id).get();
+    if (!doc.exists) return null;
+    return doc.data() as Book;
+};
+    
