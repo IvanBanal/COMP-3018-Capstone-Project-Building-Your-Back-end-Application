@@ -28,7 +28,7 @@ export const getAllMembersRepo = async (): Promise<Member[]> => {
  * @params id - Member ID
  * @returns Member or null
  */
-export const getMemberByIdRepo = async (id: string): Prommise<Member | null> => {
+export const getMemberByIdRepo = async (id: string): Promise<Member | null> => {
     const doc = await db.collection(COLLECTION).doc(id).get();
     if (!doc.exists) return null;
     return doc.data() as Member;
