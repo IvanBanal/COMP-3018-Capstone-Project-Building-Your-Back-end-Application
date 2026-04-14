@@ -42,4 +42,23 @@ export const getAllBooks = async (req: Request, res: Response) => {
     });
 };
 
+/** 
+ * This is a controller to retrieve a book by ID.
+ */
+export const getBookById = async (req: Request, res: Response) => {
+    const book = await service.getBookByIdService(req.params.id);
+
+    if (!book) {
+        res.status(HTTP_STATUS.NOT_FOUND).json({
+            message: "Book not found"
+        });
+        return;
+    }
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Book retrieved",
+        data: book
+    });
+};
+
 
