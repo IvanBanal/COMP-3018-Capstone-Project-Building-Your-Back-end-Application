@@ -1,0 +1,16 @@
+import { db } from "../config/firebaseConfig";
+import { Book } from "../models/interfaces";
+
+const COLLECTION = "books";
+
+/**
+ * This will create a new book in Firestore.
+ * @param book - Book object to save.
+ * @returns The saved book.
+ */
+export const createBookRepo = async (book: Book): Promise<Book> => {
+    const docRef = db.collection(COLLECTION).doc(book.id!);
+    await docRef.set(book);
+    return book;
+};
+
