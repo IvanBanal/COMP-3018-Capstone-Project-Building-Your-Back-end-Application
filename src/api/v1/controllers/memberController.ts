@@ -14,3 +14,16 @@ export const createMember = async (req: Request, res: Response): Promise<void> =
     });
 };
 
+/**
+ * This is a controller to retrieve all members.
+ */
+export const getAllMembers = async (req: Request, res: Response) => {
+    const members = await service.getAllMembersService();
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Members retrieved",
+        count: members.length,
+        data: members
+    });
+};
+
