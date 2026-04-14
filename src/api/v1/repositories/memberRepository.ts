@@ -14,3 +14,13 @@ export const createMemberRepo = async (member: Member): Promise<Member> => {
     return member;
 };
 
+/**
+ * This will retrieve all members.
+ * @returns Array of members.
+ */
+export const getAllMembersRepo = async (): Promise<Member[]> => {
+    const snapshot = await db.collection(COLLECTION).get();
+    return snapshot.docs.map(doc => doc.data() as Member); 
+};
+
+
