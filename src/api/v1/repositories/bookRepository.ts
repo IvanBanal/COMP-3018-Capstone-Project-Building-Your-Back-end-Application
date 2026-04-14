@@ -14,3 +14,13 @@ export const createBookRepo = async (book: Book): Promise<Book> => {
     return book;
 };
 
+/**
+ * This will retrieve all books from Firestore.
+ * @returns Array of books.
+ */ 
+export const getAllBooksRepo = async (): Promise<Book[]> => {
+    const snapshot = await db.collection(COLLECTION).get();
+    return snapshot.docs.map(doc => doc.data() as Book);
+};
+
+
