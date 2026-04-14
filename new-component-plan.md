@@ -45,3 +45,11 @@ Stricter limits can be applied to:
 - Authentication routes that require higher roles like admin. 
 
 This ensures users cannot spam requests and helps maintain system stability.
+
+## Additional Notes.
+
+npm install express-rate-limit (Install Package)
+
+I implemented express-rate-limit to protect the API from abuse by restricting excessive requests from the same client. 
+Global limits help maintain stability, while stricter limits protect sensitive routes from spam and brute-force attacks.
+
