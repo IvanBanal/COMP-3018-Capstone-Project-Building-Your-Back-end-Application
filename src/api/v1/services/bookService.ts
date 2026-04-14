@@ -51,3 +51,11 @@ export const getAllBooksService = async () => {
     return await repo.getAllBooksRepo();
 };
 
+/**
+ * This will retrieve book by ID.
+ * @param id - Book ID.
+ * @returns Book or null.
+ */
+export const getBookByIdService = async (id: string) => {
+    return await repo.getBookByIdRepo(id);
+};
