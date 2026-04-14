@@ -42,3 +42,11 @@ export const createMemberService = async (data: Partial<Member>): Promise<Member
     return await repo.createMemberRepo(member);
 };
 
+/**
+ * This will retrieve all members.
+ * @returns Array of members.
+ */
+export const getAllMembersService = async () => {
+    return await repo.getAllMembersRepo();
+};
+
