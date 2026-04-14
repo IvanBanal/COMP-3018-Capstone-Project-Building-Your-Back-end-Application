@@ -9,8 +9,8 @@ export interface Book {
     publishedYear: number;
     description: string;
     availablity: boolean;
-    createdAt?: Date;
-    updatedAt?: Date;
+    createdAt?: string;
+    updatedAt?: string;
 }
 
 export interface Member {
@@ -23,7 +23,6 @@ export interface Member {
     phoneNumber: string;
     address: string;
     booksBorrowed: string[];
-    createdAt?: Date;
-    updatedAt?: Date;
+    createdAt?: string;
+    updatedAt?: string;
 }
-

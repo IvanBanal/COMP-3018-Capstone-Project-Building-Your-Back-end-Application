@@ -4,7 +4,7 @@ import * as repo from "../repositories/bookRepository";
 let counter = 1;
 
 /**
- * This will generate a unique Event ID like book_000001.
+ * This will generate a unique Book ID like book_000001.
  * @returns Event ID string.
  */
 const generateId = () => {
@@ -15,4 +15,30 @@ const generateId = () => {
      * it's shorter, it pads with "0" at the start.
      */
     return `book_${String(counter++).padStart(6, "0")}`;
+};
+
+/** 
+ * This will create a new book and saves it to Firestore.
+ * @param data - Book input data.
+ * @returns Created Book with generated fields.
+ */
+export const createBookService = async (data: Partial<Book>): Promise<Book> => {
+    const now = new Date().toISOString();
+
+    const book: Book = {
+        id: generateId(),
+        title: data.title!,
+        author: data.author!,
+        genre: data.genre!,
+        isbn: data.isbn!,
+        totalCopies: data.totalCopies!,
+        availableCopies: data.availableCopies!,
+        publishedYear: data.publishedYear!,
+        description: data.description!,
+        availablity: data.availablity ?? true,
+        createdAt: now,
+        updatedAt: now
+    };
+    
+    return await repo.createBookRepo(book);
 };
