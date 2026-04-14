@@ -1,5 +1,4 @@
 import Joi from "joi";
-import { availableMemory } from "process";
 
 /**
  * Book validation schema.
