@@ -35,7 +35,7 @@ export const createBookService = async (data: Partial<Book>): Promise<Book> => {
         availableCopies: data.availableCopies!,
         publishedYear: data.publishedYear!,
         description: data.description!,
-        availablity: data.availablity ?? true,
+        availability: data.availability ?? true,
         createdAt: now,
         updatedAt: now
     };

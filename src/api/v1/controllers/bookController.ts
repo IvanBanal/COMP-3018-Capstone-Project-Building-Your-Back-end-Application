@@ -18,7 +18,7 @@ export const createBook = async (req: Request, res: Response): Promise<void> => 
         availableCopies: book.availableCopies,
         publishedYear: book.publishedYear,
         description: book.description,
-        availability: book.availablity,
+        availability: book.availability,
         createdAt: book.createdAt,
         updatedAt: book.updatedAt
     };

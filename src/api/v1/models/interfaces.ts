@@ -8,7 +8,7 @@ export interface Book {
     availableCopies: number;
     publishedYear: number;
     description: string;
-    availablity: boolean;
+    availability: boolean;
     createdAt?: string;
     updatedAt?: string;
 }
