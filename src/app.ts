@@ -18,6 +18,7 @@ import morgan from "morgan";
 import bookRoutes from "../src/api/v1/routes/bookRoutes";
 import memberRoutes from "../src/api/v1/routes/memberRoutes";
 import adminRoutes from "../src/api/v1/routes/adminRoutes";
+import { globalLimiter } from "./api/v1/middleware/rateLimit";
 
 // Initialize Express application
 const app: Express = express();
@@ -56,6 +57,11 @@ app.get("/api/v1/health", (req, res) => {
 });
 
 app.use(express.json());
+
+/**
+ * Global API Protection
+ */
+app.use(globalLimiter);
 
 // API Routes.
 app.use("/api/v1/books", bookRoutes);
