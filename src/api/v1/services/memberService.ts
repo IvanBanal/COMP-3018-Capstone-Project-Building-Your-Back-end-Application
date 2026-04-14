@@ -50,3 +50,11 @@ export const getAllMembersService = async () => {
     return await repo.getAllMembersRepo();
 };
 
+/**
+ * This will retrieve member by ID.
+ * @params id - Member ID.
+ * @returns Member or null.
+ */
+export const getMemberByIdService = async (id: string) => {
+    return await repo.getMemberByIdRepo(id);
+};
