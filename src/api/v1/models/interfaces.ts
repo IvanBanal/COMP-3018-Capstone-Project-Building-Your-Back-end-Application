@@ -13,3 +13,17 @@ export interface Book {
     updatedAt?: Date;
 }
 
+export interface Member {
+    id?: string;
+    name: string;
+    email: string;
+    membershipDate: Date;
+    status: "active" | "inactive" | "suspended";
+    borrowLimit: number;
+    phoneNumber: string;
+    address: string;
+    booksBorrowed: string[];
+    createdAt?: Date;
+    updatedAt?: Date;
+}
+
