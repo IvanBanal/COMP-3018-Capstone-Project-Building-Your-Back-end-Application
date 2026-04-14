@@ -29,3 +29,17 @@ export const createBook = async (req: Request, res: Response): Promise<void> => 
     });
 };
 
+/**
+ * This is a controller to retrieve all books.
+ */
+export const getAllBooks = async (req: Request, res: Response) => {
+    const books = await service.getAllBooksService();
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Books retrieved",
+        count: books.length,
+        data: books
+    });
+};
+
+
