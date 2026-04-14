@@ -41,6 +41,13 @@ if (process.env.NODE_ENV === "production") {
 // Use Morgan for HTTP request logging
 app.use(morgan("combined"));
 
+app.use(express.json());
+
+/**
+ * Global API Protection
+ */
+app.use(globalLimiter);
+
 // Define a route
 app.get("/", (req, res) => {
     res.send("Hello, World!");
@@ -55,13 +62,6 @@ app.get("/api/v1/health", (req, res) => {
         version: "1.0.0",
     });
 });
-
-app.use(express.json());
-
-/**
- * Global API Protection
- */
-app.use(globalLimiter);
 
 // API Routes.
 app.use("/api/v1/books", bookRoutes);
