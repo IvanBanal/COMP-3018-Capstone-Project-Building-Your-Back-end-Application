@@ -59,3 +59,17 @@ export const getAllBooksService = async () => {
 export const getBookByIdService = async (id: string) => {
     return await repo.getBookByIdRepo(id);
 };
+
+/**
+ * This will update a book by ID.
+ * @param id - Book ID.
+ * @returns Updated book or null.
+ */
+export const updateBookService = async (id: string, data: Partial<Book>): Promise<Book | null> => {
+    const updateData = {
+        ...data,
+        updatedAt: new Date().toISOString()
+    }
+
+    return await repo.updateBookRepo(id, updateData);
+};
