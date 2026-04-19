@@ -64,7 +64,7 @@ export const getBookById = async (req: Request, res: Response) => {
 /**
  * This is a controller to update a book by ID.
  */
-export const updaetBook = async (req: Request, res: Response) => {
+export const updateBook = async (req: Request, res: Response) => {
     const updated = await service.updateBookService(req.params.id, req.body);
 
     if (!updated) {

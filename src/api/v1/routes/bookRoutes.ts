@@ -29,4 +29,18 @@ router.get(
     controller.getBookById
 );
 
+router.put(
+    "/:id",
+    authenticate,
+    isAuthorized({ hasRole: ["librarian", "admin"] }),
+    controller.updateBook
+);
+
+router.delete(
+    "/:id",
+    authenticate,
+    isAuthorized({ hasRole: ["librarian", "admin"] }),
+    controller.deleteBook
+);
+
 export default router;
