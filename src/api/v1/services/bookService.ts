@@ -73,3 +73,12 @@ export const updateBookService = async (id: string, data: Partial<Book>): Promis
 
     return await repo.updateBookRepo(id, updateData);
 };
+
+/**
+ * This will delete a book by ID.
+ * @param id - Book ID.
+ * @returns True if deleted, false if not found.
+ */
+export const deleteBookService = async (id: string) => {
+    return await repo.deleteBookRepo(id);
+};
