@@ -49,4 +49,18 @@ export const updateBookRepo = async (id: string, data: Partial<Book>): Promise<B
     return updateDoc.data() as Book;
     
 };
+
+/**
+ * This will delete a book by ID in Firestore.
+ * @param id - Book ID.
+ * @returns True if deleted. false if not found.
+ */
+export const deleteBookRepo = async (id: string): Promise<Boolean> => {
+    const docRef = db.collection(COLLECTION).doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) return false;
+
+    await docRef.delete();
+    return true;
+};
     
