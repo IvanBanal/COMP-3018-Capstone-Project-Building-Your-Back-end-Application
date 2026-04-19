@@ -45,3 +45,41 @@ export const getMemberById = async (req: Request, res: Response) => {
         data: member
     });
 };
+
+/**
+ * This is a controller to update a member by ID.
+ */
+export const updateMember = async (req: Request, res: Response) => {
+    const updated = await service.updateMemberService(req.params.id, req.body);
+
+    if (!updated) {
+        res.status(HTTP_STATUS.NOT_FOUND).json({
+            message: "Member not found"
+        });
+        return;
+    }
+    
+    res.status(HTTP_STATUS.OK).json({
+        message: "Member updated",
+        data: updated
+    });
+};
+
+/**
+ * This is a controller to delete a member by ID.
+ */
+export const deleteMember = async (req: Request, res: Response) => {
+    const deleted = await service.deleteMemberService(req.params.id);
+
+    if (!deleted) {
+        res.status(HTTP_STATUS.NOT_FOUND).json({
+            message: "Member not found"
+        });
+        return;
+    }
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Member deleted"
+    });
+};
+
