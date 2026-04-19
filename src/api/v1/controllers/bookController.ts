@@ -61,4 +61,39 @@ export const getBookById = async (req: Request, res: Response) => {
     });
 };
 
+/**
+ * This is a controller to update a book by ID.
+ */
+export const updaetBook = async (req: Request, res: Response) => {
+    const updated = await service.updateBookService(req.params.id, req.body);
 
+    if (!updated) {
+        res.status(HTTP_STATUS.NOT_FOUND).json({
+            message: "Book not found"
+        });
+        return;
+    }
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Book updated",
+        data: updated
+    });
+};
+
+/**
+ * This is a controller to delete a book by ID.
+ */
+export const deleteBook = async (req: Request, res: Response) => {
+    const deleted = await service.deleteBookService(req.params.id);
+
+    if (!deleted) {
+        res.status(HTTP_STATUS.NOT_FOUND).json({
+            message: "Book not found"
+        });
+        return;
+    }
+
+    res.status(HTTP_STATUS.OK).json({
+        message: "Book deleted"
+    });
+};
