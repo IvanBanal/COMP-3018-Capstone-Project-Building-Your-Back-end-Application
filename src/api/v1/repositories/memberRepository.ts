@@ -34,3 +34,17 @@ export const getMemberByIdRepo = async (id: string): Promise<Member | null> => {
     return doc.data() as Member;
 };
 
+/**
+ * This will update a member by ID in Firestore.
+ * @param id - Member ID.
+ * @returns Updated member or null if not found.
+ */
+export const updateMemberRepo = async (id: string, data: Partial<Member>): Promise<Member | null> => {
+    const docRef = db.collection(COLLECTION).doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) return null;
+
+    await docRef.update(data);
+    const updateDoc = await docRef.get();
+    return updateDoc.data() as Member;
+};
