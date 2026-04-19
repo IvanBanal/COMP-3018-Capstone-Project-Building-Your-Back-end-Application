@@ -48,3 +48,17 @@ export const updateMemberRepo = async (id: string, data: Partial<Member>): Promi
     const updateDoc = await docRef.get();
     return updateDoc.data() as Member;
 };
+
+/**
+ * This will delete a member by ID in Firestore.
+ * @param id - Member ID.
+ * @returns True if deleted, false if not found.
+ */
+export const deleteMemberRepo = async (id: string): Promise<Boolean> => {
+    const docRef = db.collection(COLLECTION).doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) return false;
+
+    await docRef.delete();
+    return true;
+};
