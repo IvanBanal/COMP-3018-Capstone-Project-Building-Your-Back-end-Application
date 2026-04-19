@@ -69,7 +69,7 @@ export const updateBookService = async (id: string, data: Partial<Book>): Promis
     const updateData = {
         ...data,
         updatedAt: new Date().toISOString()
-    }
+    };
 
     return await repo.updateBookRepo(id, updateData);
 };

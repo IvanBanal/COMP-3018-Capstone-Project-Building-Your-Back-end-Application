@@ -58,3 +58,26 @@ export const getAllMembersService = async () => {
 export const getMemberByIdService = async (id: string) => {
     return await repo.getMemberByIdRepo(id);
 };
+
+/** 
+ * This will update a member by ID.
+ * @param id - Member ID.
+ * @returns Updated member or null.
+ */
+export const updateMemberService = async (id: string, data: Partial<Member>): Promise<Member | null> => {
+    const updateData = {
+        ...data,
+        updatedAt: new Date().toDateString()
+    };
+    
+    return await repo.updateMemberRepo(id, updateData);
+};
+
+/**
+ * This will delete a member by ID.
+ * @param id - Member ID.
+ * @returns True if deleted, false if not found.
+ */
+export const deleteMemberService = async (id: string) => {
+    return await repo.deleteMemberRepo(id);
+}
