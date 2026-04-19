@@ -29,4 +29,18 @@ router.get(
     controller.getMemberById
 );
 
+router.put(
+    "/:id",
+    authenticate,
+    isAuthorized({ hasRole: ["librarian", "admin"] }),
+    controller.updateMember
+);
+
+router.delete(
+    "/:id",
+    authenticate,
+    isAuthorized({ hasRole: ["admin"] }),
+    controller.deleteMember
+);
+
 export default router;
