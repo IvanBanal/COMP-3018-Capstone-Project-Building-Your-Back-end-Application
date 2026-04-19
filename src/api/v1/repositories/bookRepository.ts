@@ -24,7 +24,7 @@ export const getAllBooksRepo = async (): Promise<Book[]> => {
 };
 
 /**
- * This will retrieve a single book by ID.
+ * This will retrieve a single book by ID from Firestore.
  * @params id - book ID.
  * @returns Book or null if not found.
  */
@@ -32,5 +32,21 @@ export const getBookByIdRepo = async (id: string): Promise<Book | null> => {
     const doc = await db.collection(COLLECTION).doc(id).get();
     if (!doc.exists) return null;
     return doc.data() as Book;
+};
+
+/**
+ * This will update a book by ID in in Firestore.
+ * @param id - Book ID.
+ * @returns Updated book or null if not found.
+ */
+export const updateBookRepo = async (id: string, data: Partial<Book>): Promise<Book | null> => {
+    const docRef = db.collection(COLLECTION).doc(id);
+    const doc = await docRef.get();
+    if (!doc.exists) return null;
+
+    await docRef.update(data);
+    const updateDoc = await docRef.get();
+    return updateDoc.data() as Book;
+    
 };
     
