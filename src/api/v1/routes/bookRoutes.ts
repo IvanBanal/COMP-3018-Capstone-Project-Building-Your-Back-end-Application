@@ -4,7 +4,6 @@ import { validateRequest } from "../middleware/validate";
 import { createBookSchema, updateBookSchema } from "../validation/bookSchema";
 import authenticate from "../middleware/authenticate";
 import isAuthorized from "../middleware/authorize";
-import { updateBookRepo } from "../repositories/bookRepository";
 
 const router = Router();
 

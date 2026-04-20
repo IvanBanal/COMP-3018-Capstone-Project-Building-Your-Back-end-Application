@@ -18,7 +18,7 @@ router.post(
 router.get(
     "/", 
     authenticate,
-    isAuthorized({ hasRole: ["admin"] }),
+    isAuthorized({ hasRole: ["librarian", "admin"] }),
     controller.getAllMembers
 );
 
