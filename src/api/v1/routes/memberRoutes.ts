@@ -1,7 +1,7 @@
 import { Router } from "express";
 import * as controller from "../controllers/memberController";
 import { validateRequest } from "../middleware/validate";
-import { createMemberSchema } from "../validation/memberSchema";
+import { createMemberSchema, updateMemberSchema } from "../validation/memberSchema";
 import authenticate from "../middleware/authenticate";
 import isAuthorized from "../middleware/authorize";
 
@@ -33,6 +33,7 @@ router.put(
     "/:id",
     authenticate,
     isAuthorized({ hasRole: ["librarian", "admin"] }),
+    validateRequest({ body: updateMemberSchema }),
     controller.updateMember
 );
 
