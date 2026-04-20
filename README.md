@@ -326,7 +326,7 @@ Response (200 OK)
 # API Documentation
 
 Full documentation is available at:
-
+https://ivanbanal.github.io/COMP-3018-Capstone-Project-Building-Your-Back-end-Application/
 
 Swagger UI (local):
 http://localhost:3000/api-docs
